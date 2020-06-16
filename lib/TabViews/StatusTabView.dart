@@ -145,96 +145,109 @@ class StatusTabView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SizedBox(
-            height: 8.0,
-          ),
-          ListTile(
-            leading: DashedCircle(
-              color: Colors.grey,
-              gapSize: 10.0,
-              dashes: 4,
-              child: Padding(
-                padding: const EdgeInsets.all(2.0),
-                child: CircleAvatar(
-                  radius: 25.0,
-                  backgroundImage: AssetImage('assets/images/person2.jpg'),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      body: Padding(
+        padding: EdgeInsets.only(top: 8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(
+              height: 8.0,
+            ),
+            ListTile(
+              leading: DashedCircle(
+                color: Colors.grey,
+                gapSize: 5.0,
+                dashes: 8,
+                child: Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: CircleAvatar(
+                    radius: 25.0,
+                    backgroundColor: Colors.lightBlueAccent,
+                    child: Text('Hello, Flutter',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                  ),
+                ),
+              ),
+              title: RichText(
+                text: TextSpan(
+                    text: 'My Status',
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.headline1.color),
+                    children: <InlineSpan>[
+                      TextSpan(text: '\n'),
+                      TextSpan(
+                          text: 'Today, 6:13PM',
+                          style: TextStyle(
+                              color:
+                                  Theme.of(context).textTheme.headline2.color))
+                    ]),
+              ),
+              trailing:
+                  Icon(Icons.more_horiz, color: Theme.of(context).buttonColor),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 7.0),
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                width: double.infinity,
+                color: Theme.of(context).secondaryHeaderColor,
+                child: Text(
+                  'Recent updates',
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.headline2.color),
                 ),
               ),
             ),
-            title: RichText(
-              text: TextSpan(
-                  text: 'My Status',
-                  style: TextStyle(color: Colors.black),
-                  children: <InlineSpan>[
-                    TextSpan(text: '\n'),
-                    TextSpan(
-                        text: 'Today, 6:13PM',
-                        style: TextStyle(color: Colors.black54))
-                  ]),
-            ),
-            trailing: Icon(Icons.more_horiz, color: Color(0xff64B7AE)),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 12.0),
-            child: Container(
-              padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 16.0),
-              width: double.infinity,
-              color: Color(0xFFF4F4F4),
-              child: Text(
-                'Recent updates',
-                style: TextStyle(color: Colors.black54),
-              ),
-            ),
-          ),
-          Expanded(
-            child: ListView.separated(
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return IndividualStatusListItem(
-                    statusPostView: listOfStatusPostView[index],
-                    statusPosterName: listOfStatusPosterName[index],
-                    statusPostTime: listOfStatusPostTime[index],
-                  );
-                },
-                separatorBuilder: (context, index) => index == 4
-                    ? Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 12.0),
-                        child: Container(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 3.0, horizontal: 16.0),
-                          width: double.infinity,
-                          color: Color(0xFFF4F4F4),
-                          child: Text(
-                            'Viewed updates',
-                            style: TextStyle(color: Colors.black54),
+            Expanded(
+              child: ListView.separated(
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return IndividualStatusListItem(
+                      statusPostView: listOfStatusPostView[index],
+                      statusPosterName: listOfStatusPosterName[index],
+                      statusPostTime: listOfStatusPostTime[index],
+                    );
+                  },
+                  separatorBuilder: (context, index) => index == 4
+                      ? Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 7.0),
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 8.0, horizontal: 16.0),
+                            width: double.infinity,
+                            color: Theme.of(context).secondaryHeaderColor,
+                            child: Text(
+                              'Viewed updates',
+                              style: TextStyle(
+                                color:
+                                    Theme.of(context).textTheme.headline2.color,
+                              ),
+                            ),
                           ),
-                        ),
-                      )
-                    : Divider()),
-          ),
-        ],
+                        )
+                      : Divider()),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton(
             onPressed: () {},
+            backgroundColor: Theme.of(context).accentIconTheme.color,
             child: Icon(
               Icons.edit,
-              color: Color(0xff557679),
+              color: Theme.of(context).primaryIconTheme.color,
             ),
             mini: true,
-            backgroundColor: Colors.white,
           ),
           SizedBox(
             height: 12.0,
           ),
           FloatingActionButton(
-            backgroundColor: Color(0xFF00CC3F),
             onPressed: () {},
             child: Icon(
               Icons.camera_alt,
@@ -262,11 +275,14 @@ class IndividualStatusListItem extends StatelessWidget {
       title: RichText(
         text: TextSpan(
             text: statusPosterName,
-            style: TextStyle(color: Colors.black),
+            style:
+                TextStyle(color: Theme.of(context).textTheme.headline1.color),
             children: <InlineSpan>[
               TextSpan(text: '\n'),
               TextSpan(
-                  text: statusPostTime, style: TextStyle(color: Colors.black54))
+                  text: statusPostTime,
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.headline2.color))
             ]),
       ),
     );

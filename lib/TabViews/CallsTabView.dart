@@ -129,7 +129,7 @@ class CallsTabView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: ListView.separated(
           itemCount: 11,
           itemBuilder: (context, index) {
@@ -145,7 +145,6 @@ class CallsTabView extends StatelessWidget {
             return Divider();
           }),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFF00CC3F),
         child: Icon(
           Icons.add_call,
           color: Colors.white,
@@ -172,29 +171,35 @@ class CallsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: circleAvatar,
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            callerName,
-            style: TextStyle(color: Colors.black),
-          ),
-          Row(
-            children: <Widget>[
-              callStatusIcon,
-              Text(
-                callTime,
-                style: TextStyle(color: Colors.black54, fontSize: 15.0),
-              )
-            ],
-          )
-        ],
-      ),
-      trailing: Icon(
-        callIcon,
-        color: Theme.of(context).accentColor,
+    return Padding(
+      padding: EdgeInsets.only(top: 8.0),
+      child: ListTile(
+        leading: circleAvatar,
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              callerName,
+              style:
+                  TextStyle(color: Theme.of(context).textTheme.headline1.color),
+            ),
+            Row(
+              children: <Widget>[
+                callStatusIcon,
+                Text(
+                  callTime,
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.headline2.color,
+                      fontSize: 15.0),
+                )
+              ],
+            )
+          ],
+        ),
+        trailing: Icon(
+          callIcon,
+          color: Theme.of(context).primaryColorLight,
+        ),
       ),
     );
   }

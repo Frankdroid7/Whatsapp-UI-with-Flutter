@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsappui/theme_changer.dart';
+
+ThemeChanger _themeChanger = ThemeChanger();
 
 List<String> listOfFriendsName = [
   'Francis Group',
@@ -19,27 +22,45 @@ List<String> listOfFriendsName = [
 List<Widget> listOfMessageWidget = [
   Row(
     children: <Widget>[
-      Text(
-        'Jane: ',
-        style: TextStyle(color: Colors.black54),
+      Builder(
+        builder: (context) {
+          return Text(
+            'Jane: ',
+            style:
+                TextStyle(color: Theme.of(context).textTheme.headline2.color),
+          );
+        },
       ),
       Icon(
         Icons.note,
         color: Color(0xff11A599),
       ),
-      Text(
-        'Sticker',
-        style: TextStyle(color: Colors.white60),
+      Builder(
+        builder: (context) {
+          return Text(
+            'Sticker ',
+            style:
+                TextStyle(color: Theme.of(context).textTheme.headline2.color),
+          );
+        },
       ),
     ],
   ),
-  Text(
-    'John Doe: What\'s for dinner? ',
-    style: TextStyle(color: Colors.black54),
+  Builder(
+    builder: (context) {
+      return Text(
+        'John Doe: What\'s for dinner? ',
+        style: TextStyle(color: Theme.of(context).textTheme.headline2.color),
+      );
+    },
   ),
-  Text(
-    'Ned: 👌 ',
-    style: TextStyle(color: Colors.black54),
+  Builder(
+    builder: (context) {
+      return Text(
+        'Ned: 👌 ',
+        style: TextStyle(color: Theme.of(context).textTheme.headline2.color),
+      );
+    },
   ),
   Row(
     mainAxisAlignment: MainAxisAlignment.start,
@@ -49,9 +70,14 @@ List<Widget> listOfMessageWidget = [
         color: Colors.grey,
       ),
       SizedBox(width: 5.0),
-      Text(
-        'Business is Smooth ',
-        style: TextStyle(color: Colors.black54),
+      Builder(
+        builder: (context) {
+          return Text(
+            'Business is Smooth ',
+            style:
+                TextStyle(color: Theme.of(context).textTheme.headline2.color),
+          );
+        },
       ),
     ],
   ),
@@ -63,52 +89,91 @@ List<Widget> listOfMessageWidget = [
         color: Color(0xff11A599),
       ),
       SizedBox(width: 5.0),
-      Text(
-        '2:07',
-        style: TextStyle(color: Colors.black54),
+      Builder(
+        builder: (context) {
+          return Text(
+            '2:07',
+            style:
+                TextStyle(color: Theme.of(context).textTheme.headline2.color),
+          );
+        },
       ),
     ],
   ),
   Row(
     mainAxisAlignment: MainAxisAlignment.start,
     children: <Widget>[
-      Icon(
-        Icons.photo,
-        color: Colors.black54,
+      Builder(
+        builder: (context) {
+          return Icon(
+            Icons.photo,
+            color: Theme.of(context).textTheme.headline2.color,
+          );
+        },
       ),
-      Text(
-        'My pics',
-        style: TextStyle(color: Colors.black54),
+      Builder(
+        builder: (context) {
+          return Text(
+            'My pics',
+            style:
+                TextStyle(color: Theme.of(context).textTheme.headline2.color),
+          );
+        },
       ),
     ],
   ),
-  Text(
-    'How are you doing?',
-    style: TextStyle(color: Colors.black54),
+  Builder(
+    builder: (context) {
+      return Text(
+        'How are you doing?',
+        style: TextStyle(color: Theme.of(context).textTheme.headline2.color),
+      );
+    },
   ),
   Row(
     children: <Widget>[
-      Icon(
-        Icons.mic,
-        color: Colors.black54,
+      Builder(
+        builder: (context) {
+          return Icon(
+            Icons.mic,
+            color: Theme.of(context).textTheme.headline2.color,
+          );
+        },
       ),
-      Text(
-        '1:35',
-        style: TextStyle(color: Colors.black54),
+      Builder(
+        builder: (context) {
+          return Text(
+            '1:35',
+            style:
+                TextStyle(color: Theme.of(context).textTheme.headline2.color),
+          );
+        },
       ),
     ],
   ),
-  Text(
-    'I love you',
-    style: TextStyle(color: Colors.black54),
+  Builder(
+    builder: (context) {
+      return Text(
+        'I love you',
+        style: TextStyle(color: Theme.of(context).textTheme.headline2.color),
+      );
+    },
   ),
-  Text(
-    'When are we going?',
-    style: TextStyle(color: Colors.black54),
+  Builder(
+    builder: (context) {
+      return Text(
+        'When are we going?',
+        style: TextStyle(color: Theme.of(context).textTheme.headline2.color),
+      );
+    },
   ),
-  Text(
-    'You will come to my place',
-    style: TextStyle(color: Colors.black54),
+  Builder(
+    builder: (context) {
+      return Text(
+        'You will come to my place',
+        style: TextStyle(color: Theme.of(context).textTheme.headline2.color),
+      );
+    },
   ),
   Row(
     children: <Widget>[
@@ -116,9 +181,14 @@ List<Widget> listOfMessageWidget = [
         Icons.local_pizza,
         color: Colors.white,
       ),
-      Text(
-        'So delicious',
-        style: TextStyle(color: Colors.black54),
+      Builder(
+        builder: (context) {
+          return Text(
+            'So delicious',
+            style:
+                TextStyle(color: Theme.of(context).textTheme.headline2.color),
+          );
+        },
       ),
     ],
   ),
@@ -136,10 +206,16 @@ List<Widget> listOfTrailingWidget = [
       CircleAvatar(
         radius: 11.0,
         backgroundColor: Color(0xff11A599),
-        child: Text(
-          '4',
-          style: TextStyle(
-              color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.bold),
+        child: Builder(
+          builder: (context) {
+            return Text(
+              '4',
+              style: TextStyle(
+                  color: Theme.of(context).textTheme.headline4.color,
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.bold),
+            );
+          },
         ),
       ),
     ],
@@ -155,21 +231,35 @@ List<Widget> listOfTrailingWidget = [
       CircleAvatar(
         radius: 11.0,
         backgroundColor: Color(0xff11A599),
-        child: Text(
-          '10',
-          style: TextStyle(
-              color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.bold),
+        child: Builder(
+          builder: (context) {
+            return Text(
+              '10',
+              style: TextStyle(
+                  color: Theme.of(context).textTheme.headline4.color,
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.bold),
+            );
+          },
         ),
       ),
     ],
   ),
-  Text(
-    'YESTERDAY',
-    style: TextStyle(color: Colors.black54),
+  Builder(
+    builder: (context) {
+      return Text(
+        'YESTERDAY',
+        style: TextStyle(color: Theme.of(context).textTheme.headline2.color),
+      );
+    },
   ),
-  Text(
-    'SATURDAY',
-    style: TextStyle(color: Colors.black54),
+  Builder(
+    builder: (context) {
+      return Text(
+        'SATURDAY',
+        style: TextStyle(color: Theme.of(context).textTheme.headline2.color),
+      );
+    },
   ),
   Text(
     'FRIDAY',
@@ -186,10 +276,16 @@ List<Widget> listOfTrailingWidget = [
       CircleAvatar(
         radius: 11.0,
         backgroundColor: Color(0xff11A599),
-        child: Text(
-          '1',
-          style: TextStyle(
-              color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.bold),
+        child: Builder(
+          builder: (context) {
+            return Text(
+              '1',
+              style: TextStyle(
+                  color: Theme.of(context).textTheme.headline4.color,
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.bold),
+            );
+          },
         ),
       ),
     ],
@@ -209,10 +305,16 @@ List<Widget> listOfTrailingWidget = [
       CircleAvatar(
         radius: 11.0,
         backgroundColor: Color(0xff11A599),
-        child: Text(
-          '3',
-          style: TextStyle(
-              color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.bold),
+        child: Builder(
+          builder: (context) {
+            return Text(
+              '3',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.bold),
+            );
+          },
         ),
       ),
     ],
@@ -228,10 +330,16 @@ List<Widget> listOfTrailingWidget = [
       CircleAvatar(
         radius: 11.0,
         backgroundColor: Color(0xff11A599),
-        child: Text(
-          '4',
-          style: TextStyle(
-              color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.bold),
+        child: Builder(
+          builder: (context) {
+            return Text(
+              '4',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.bold),
+            );
+          },
         ),
       ),
     ],
@@ -269,7 +377,7 @@ class ChatTabView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: ListView.separated(
         itemCount: 12,
         separatorBuilder: (context, int) => Divider(),
@@ -283,7 +391,6 @@ class ChatTabView extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFF00CC3F),
         child: Icon(Icons.message, color: Colors.white),
         onPressed: () {},
       ),
@@ -305,24 +412,28 @@ class IndividualChatListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-        leading: CircleAvatar(
-          radius: 25.0,
-          backgroundImage: avatarImage,
-        ),
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              friendsName,
-              style: TextStyle(color: Colors.black),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 5.0),
-              child: messageWidget,
-            ),
-          ],
-        ),
-        trailing: trailingWidget);
+    return Padding(
+      padding: EdgeInsets.only(top: 8.0),
+      child: ListTile(
+          leading: CircleAvatar(
+            radius: 25.0,
+            backgroundImage: avatarImage,
+          ),
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                friendsName,
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.headline1.color),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 5.0),
+                child: messageWidget,
+              ),
+            ],
+          ),
+          trailing: trailingWidget),
+    );
   }
 }
